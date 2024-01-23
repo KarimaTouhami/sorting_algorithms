@@ -1,11 +1,12 @@
-#ifndef SORT_H
-#define SORT_H
+#ifndef __SORT__H
+#define __SORT__H
 
+#include <stddef.h>
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <math.h>
 
+/** Data structures **/
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -15,18 +16,22 @@
  */
 typedef struct listint_s
 {
-const int n;
-struct listint_s *prev;
-struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
-/* function declarations */
-void print_list(const listint_t *list);
-void print_array(const int *array, size_t size);
-
+/** Prototypes of functions **/
 void bubble_sort(int *array, size_t size);
-void quick_sort(int *array, size_t size);
-void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
+void print_array(const int *array, size_t size);
+void selection_sort(int *array, size_t size);
+void print_list(const listint_t *list);
+void shell_sort(int *array, size_t size);
+void swap(int *a, int *b);
+size_t partition(int *array, size_t low, size_t high, size_t size);
+void quick_sort(int *array, size_t size);
+void quick_sort_recursion(int *array, size_t low, size_t high, size_t size);
+void counting_sort(int *array, size_t size);
 
 #endif
